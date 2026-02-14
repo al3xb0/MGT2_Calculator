@@ -38,6 +38,10 @@ Most "calculators" for MGT2 either:
 
 **MGT2 Calculator** uses the actual optimal slider values sourced from the definitive [Steam Community Guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2730524852) by **Chronosuniverse**. When a specific genre + subgenre combination has its own overridden values, you get those exact values — not an average.
 
+## Screenshot of the app in action:
+
+![alt text](image.png)
+
 ---
 
 ## 🚀 Getting Started
