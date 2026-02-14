@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* CSS variable for window transparency */
+:root {
+  --app-opacity: 1;
+  --panel-alpha: 0.4;
+  --header-alpha: 0.95;
+  --card-alpha: 0.4;
+  --border-alpha: 0.5;
+}
+
+/* Alpha-aware backgrounds */
+.bg-panel {
+  background-color: rgba(31, 41, 55, var(--panel-alpha));
+}
+
+.bg-header {
+  background-color: rgba(17, 24, 39, var(--header-alpha));
+}
+
+.bg-card {
+  background-color: rgba(55, 65, 81, var(--card-alpha));
+}
+
+.border-panel {
+  border-color: rgba(55, 65, 81, var(--border-alpha));
+}
+
+/* Compact base */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-size: 15px;
+  background: transparent !important;
+}
+
+#root {
+  height: 100%;
+  overflow: hidden;
+  font-size: 15px;
+  background: rgb(17, 24, 39);
+  border-radius: 8px;
+  opacity: var(--app-opacity);
+}
+
+/* Remove default transitions for performance */
+* {
+  transition-property: background-color, border-color, color, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+}
+
+/* Remove default focus outline, use ring instead */
+*:focus {
+  outline: none;
+}
+
+/* Prevent text selection on UI elements */
+button,
+select,
+label {
+  user-select: none;
+}
+
+/* Custom select arrow for dark theme */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.3rem center;
+  background-repeat: no-repeat;
+  background-size: 1.2em 1.2em;
+  padding-right: 1.8rem;
+}
+
+/* Compact range input */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #374151;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #a855f7;
+  cursor: pointer;
+}
+
+/* Window drag region for Tauri */
+[data-tauri-drag-region] {
+  -webkit-app-region: drag;
+}
+
+[data-tauri-drag-region] button,
+[data-tauri-drag-region] input,
+[data-tauri-drag-region] select {
+  -webkit-app-region: no-drag;
+}
